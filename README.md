@@ -88,10 +88,11 @@ Obtém o resumo do saldo atual
 
 ## 🧪 Testes
 
-O projeto inclui testes de integração usando Vitest e Supertest. Para executar os testes:
+O projeto inclui testes de integração usando Vitest e Supertest.
 
 ## 📦 Estrutura do Projeto
 
+```
 src/
 ├── @types/ # Definições de tipos TypeScript
 ├── env/ # Configuração de variáveis de ambiente
@@ -99,3 +100,4 @@ src/
 ├── middlewares/ # Middlewares do Fastify
 ├── database/ # Configurações do banco de dados e migrações
 └── test/ # Arquivos de teste
+```
