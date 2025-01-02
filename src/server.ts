@@ -1,16 +1,14 @@
 import fastify from 'fastify';
 import { knex } from './database';
+import { transactionsRoutes } from './routes/transactions';
 
 const app = fastify();
+
+app.register(transactionsRoutes)
 
 async function setup() {
   await knex.raw('SELECT 1');
 }
-
-app.get('/hello', async () => {
-  const tables = await knex('sqlite_schema').select('*')
-  return tables
-})
 
 setup()
   .then(() => {
