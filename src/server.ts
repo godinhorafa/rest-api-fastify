@@ -1,23 +1,9 @@
-import fastify from 'fastify';
-import { knex } from './database';
-import { transactionsRoutes } from './routes/transactions';
-import cookie from '@fastify/cookie'
+import { app } from "./app";
+import { env } from "./env";
 
-const app = fastify();
+app.listen({
+  port: env.PORT,
 
-app.register(cookie)
-app.register(transactionsRoutes, {
-  prefix: 'transactions',
+}).then(() => {
+  console.log('HTTP Server Running!')
 })
-
-async function setup() {
-  await knex.raw('SELECT 1');
-}
-
-setup()
-  .then(() => {
-    app.listen({ port: 3333 }).then(() => {
-      console.log("Server is running on port 3333");
-    });
-  })
-  .catch(console.error);
